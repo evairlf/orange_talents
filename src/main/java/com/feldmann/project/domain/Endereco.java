@@ -136,7 +136,7 @@ public class Endereco implements Serializable{
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

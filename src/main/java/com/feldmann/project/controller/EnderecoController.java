@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,14 +31,13 @@ public class EnderecoController {
 	private UsuarioService usuarioService;
 	
 	
-	@PostMapping("/inserir")
-	public ResponseEntity<Void> inserir(@RequestBody @Valid Usuario usr,@Valid Endereco end){
+	@PostMapping("/inserir/{id}")
+	public ResponseEntity<Void> inserir(@RequestBody @Valid  Endereco end,@PathVariable Long id){
 		
-		end = new Endereco(end.getId(),end.getLogradouro(),end.getNumero(),end.getComplemento(),end.getBairro(),end.getCidade(),end.getEstado(),
-				end.getCep(),usr);
-		usr = new Usuario(usr.getId(),usr.getNome(),usr.getEmail(),usr.getCpf(),usr.getDataDeNascimento());
+		Usuario usr = usuarioService.buscar(id);
 		
-		usr = usuarioService.inserir(usr);
+		end = new Endereco(null,end.getLogradouro(),end.getNumero(),end.getComplemento(),end.getBairro(),
+				end.getCidade(),end.getEstado(),end.getCep(),usr);
 		end = enderecoService.inserir(end);
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").
