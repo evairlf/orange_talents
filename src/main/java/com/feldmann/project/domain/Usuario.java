@@ -22,15 +22,9 @@ import org.hibernate.validator.constraints.br.CPF;
 
 
 @Entity
-//faz o campo email e cpf serem unicos no nivel de tabela
-
 @Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"cpf"})})
 public class Usuario implements Serializable{
 private static final long serialVersionUID = 1L;
-
-/*O primeiro passo deve ser a construção de um cadastro de usuários,
- *  sendo obrigatório dados como: nome, e-mail, CPF e data de nascimento,
- *   onde e-mail e CPF devem ser únicos.*/
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)

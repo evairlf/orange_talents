@@ -40,7 +40,7 @@ public class ControllerHandler {
 	@ExceptionHandler(DataIntegrityViolationException.class)
 	public ResponseEntity<StandardError> data(DataIntegrityViolationException e,HttpServletRequest request){
 		
-		ValidationError err = new ValidationError(HttpStatus.BAD_REQUEST.value(),"Erro de SQL :" + e.getMessage(),System.currentTimeMillis());
+		ValidationError err = new ValidationError(HttpStatus.BAD_REQUEST.value(),"Erro de campo Unico",System.currentTimeMillis());
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
 		
 	}

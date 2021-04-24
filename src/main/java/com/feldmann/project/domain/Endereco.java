@@ -18,13 +18,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Endereco implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	/*O segundo passo é criar um cadastro de endereços,
-	 *  sendo obrigatório dados mínimos para cadastro como: logradouro, número,
-	 *   complemento, bairro, cidade, estado e CEP, associando este endereço ao usuário.*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	//isso aqui é a rua
 	@NotEmpty
 	private String logradouro;
 	

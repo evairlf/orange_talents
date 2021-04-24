@@ -1,5 +1,6 @@
 package com.feldmann.project.controller;
 
+
 import java.net.URI;
 
 import javax.validation.Valid;
@@ -19,8 +20,6 @@ import com.feldmann.project.services.EnderecoService;
 import com.feldmann.project.services.UsuarioService;
 
 @RestController
-//requisiçao agatetepe
-//esse negocio faz com que o front fale com o back
 @RequestMapping(value ="/endereco")
 public class EnderecoController {
 	

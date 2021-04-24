@@ -18,8 +18,6 @@ import com.feldmann.project.domain.Usuario;
 import com.feldmann.project.services.UsuarioService;
 
 @RestController
-//requisiçao agatetepe
-//esse negocio faz com que o front fale com o back
 @RequestMapping(value ="/usuarios")
 public class UsuarioControler {
 	
