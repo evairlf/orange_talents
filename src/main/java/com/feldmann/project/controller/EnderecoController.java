@@ -36,14 +36,15 @@ public class EnderecoController {
 		
 		Usuario usr = usuarioService.buscar(id);
 		
-		end = new Endereco(null,end.getLogradouro(),end.getNumero(),end.getComplemento(),end.getBairro(),
-				end.getCidade(),end.getEstado(),end.getCep(),usr);
-		end = enderecoService.inserir(end);
-		
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").
-				buildAndExpand(end.getId()).toUri();
-		
+			end = new Endereco(null,end.getLogradouro(),end.getNumero(),end.getComplemento(),end.getBairro(),
+					end.getCidade(),end.getEstado(),end.getCep(),usr);
+			end = enderecoService.inserir(end);
+			
+			URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").
+					buildAndExpand(end.getId()).toUri();
+			
 		return ResponseEntity.created(uri).build();
+		
 	}
 
 }
