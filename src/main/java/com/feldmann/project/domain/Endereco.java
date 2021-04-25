@@ -23,7 +23,6 @@ public class Endereco implements Serializable{
 	private Long id;
 	@NotEmpty
 	private String logradouro;
-	
 	@NotNull
 	private Integer numero;
 	@NotEmpty
@@ -37,6 +36,9 @@ public class Endereco implements Serializable{
 	@NotEmpty
 	private String cep;
 	
+	private String ddd;
+	private String ibge;
+	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,9 +48,11 @@ public class Endereco implements Serializable{
 	public Endereco() {
 	}
 	
-	public Endereco(Long id, @NotEmpty String logradouro, @NotEmpty Integer numero, @NotEmpty String complemento,
-			@NotEmpty String bairro, @NotEmpty String cidade, @NotEmpty String estado, @NotEmpty String cep,
-			Usuario usuario) {
+	
+
+	public Endereco(Long id, @NotEmpty String logradouro, @NotNull Integer numero, @NotEmpty String complemento,
+			@NotEmpty String bairro, @NotEmpty String cidade, @NotEmpty String estado, @NotEmpty String cep, String ddd,
+			String ibge, Usuario usuario) {
 		super();
 		this.id = id;
 		this.logradouro = logradouro;
@@ -58,8 +62,12 @@ public class Endereco implements Serializable{
 		this.cidade = cidade;
 		this.estado = estado;
 		this.cep = cep;
+		this.ddd = ddd;
+		this.ibge = ibge;
 		this.usuario = usuario;
 	}
+
+	
 
 	public Long getId() {
 		return id;
@@ -133,6 +141,23 @@ public class Endereco implements Serializable{
 		this.usuario = usuario;
 	}
 	
+	
+	public String getDdd() {
+		return ddd;
+	}
+
+	public void setDdd(String ddd) {
+		this.ddd = ddd;
+	}
+
+	public String getIbge() {
+		return ibge;
+	}
+
+	public void setIbge(String ibge) {
+		this.ibge = ibge;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
